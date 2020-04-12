@@ -2,6 +2,7 @@ import * as Keyv from 'keyv';
 
 declare class Item {
 	constructor(pool: Pool, key: string, status?: string);
+	set(value: string): Promise<true>
 	get(): Promise<any>
 	setStatus(status: string): Promise<true>
 	pool: Pool;
@@ -9,7 +10,7 @@ declare class Item {
 	status: string;
 }
 
-declare class Pool {
+module.exports = declare class Pool {
 	constructor(database: Keyv)
 	add(value: any, status?: string): Promise<Item>
 	set(key: Item | string, value: any): Promise<true>;
