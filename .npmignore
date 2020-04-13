@@ -3,3 +3,4 @@ test
 *.tsconfig.json
 *.tsbuildinfo
 tsconfig.json
+mains.hbs
