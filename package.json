@@ -1,6 +1,6 @@
 {
   "name": "pooling.js",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "A basic pooling module",
   "main": "src\\index.js",
   "scripts": {
