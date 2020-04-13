@@ -90,4 +90,8 @@ class Pool {
 	statuses: Keyv
 }
 
-module.exports = Pool;
+const exp = Pool;
+
+export default exp;
+
+module.exports = exp;
