@@ -20,5 +20,5 @@ declare class Pool {
     items: Keyv;
     statuses: Keyv;
 }
-declare const exp: typeof Pool;
-export default exp;
+
+export default Pool;
