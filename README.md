@@ -1,9 +1,15 @@
 # Pooling.js
-[![Package Quality](https://npm.packagequality.com/badge/pooling.js.png)](https://packagequality.com/#?package=pooling.js)
-
+![npm](https://img.shields.io/npm/v/pooling.js)
+[![NPM](https://nodei.co/npm/pooling.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pooling.js/)
 # Introduction
 
 Handle statuses of data, and store the information in a [Keyv](https://github.com/lukechilds/keyv) database
+
+## Examples
+Creates a item and gets its value
+```js
+const Pool = require('pooling.js')
+const pool = new Pool()
 
 # Documentation
 
