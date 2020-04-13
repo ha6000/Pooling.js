@@ -13,8 +13,8 @@ const Pool = require('pooling.js');
 const pool = new Pool();
 
 pool.set('cooldataofthisitem', 'coolstatus')
-.then(id => {
-    return pool.get(id);
+.then(item => {
+    return pool.get(item.key);
 })
 .then((data) => {
     console.log(data)
