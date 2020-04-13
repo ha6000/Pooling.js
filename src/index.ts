@@ -41,8 +41,17 @@ class Item {
 	get(): Promise<any> {
 		return this.pool.get(this);
 	}
+	/**
+	 * @type {Pool}
+	 */
 	pool: Pool;
+	/**
+	 * @type {string}
+	 */
 	key: string;
+	/**
+	 * @type {string}
+	 */
 	status: string;
 }
 
@@ -146,8 +155,17 @@ class Pool {
 			return resolve(items);
 		});
 	}
+	/**
+	 * @type {Keyv}
+	 */
 	database: Keyv
+	/**
+	 * @type {Keyv}
+	 */
 	items: Keyv
+	/**
+	 * @type {Keyv}
+	 */
 	statuses: Keyv
 }
 
