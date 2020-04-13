@@ -83,4 +83,6 @@ class Pool {
         });
     }
 }
-module.exports = Pool;
+const exp = Pool;
+exports.default = exp;
+module.exports = exp;
