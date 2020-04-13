@@ -9,8 +9,18 @@ Handle statuses of data, and store the information in a [Keyv](https://github.co
 ## Examples
 Creates a item and gets its value
 ```js
-const Pool = require('pooling.js')
-const pool = new Pool()
+const Pool = require('pooling.js');
+const pool = new Pool();
+
+pool.set('cooldataofthisitem', 'coolstatus')
+.then(id => {
+    return pool.get(id);
+})
+.then((data) => {
+    console.log(data)
+    // cooldataofthisitem
+});
+```
 
 # Documentation
 
