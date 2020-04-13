@@ -1,5 +1,6 @@
 # Pooling.js
 ![npm](https://img.shields.io/npm/v/pooling.js)
+
 [![NPM](https://nodei.co/npm/pooling.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/pooling.js/)
 # Introduction
 
