@@ -5,7 +5,8 @@
   "main": "src\\index.js",
   "scripts": {
     "build": "tsc",
-    "test": "npm run build && node test"
+    "test": "npm run build && node test",
+    "docs": "jsdoc2md src/index.js --partial main.hbs > README.md"
   },
   "repository": {
     "type": "git",
