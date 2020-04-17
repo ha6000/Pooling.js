@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Keyv = require("keyv");
-const keyvExt = require("keyv-extensions");
 const shortid = require("shortid");
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:.');
 /**
@@ -51,8 +50,8 @@ class Pool {
      */
     constructor(database) {
         this.database = database;
-        this.items = new Keyv({ store: new keyvExt.KeyvSub(this.database, 'data') });
-        this.statuses = new Keyv({ store: new keyvExt.KeyvSub(this.database, 'statuses') });
+        this.items = new Keyv({ store: database, namespace: 'items' });
+        this.statuses = new Keyv({ store: database, namespace: 'statuses' });
     }
     /**
      * Add a item to the pool
@@ -117,7 +116,11 @@ class Pool {
      */
     getItemsOf(status) {
         return this.statuses.get(status).then(items => {
-            return items.map(i => new Item(this, i, status));
+            if (items != undefined) {
+                return items.map(i => new Item(this, i, status));
+            }
+            else
+                return [];
         });
     }
     /**
@@ -128,16 +131,20 @@ class Pool {
     getOf(status) {
         var output = [];
         var resolve = (items) => {
-            return Promise.resolve()
-                .then(() => {
-                return this.get(items.pop());
-            })
-                .then((i) => {
-                output.push(i);
-                if (items.length != 0) {
-                    return resolve(items);
-                }
-            });
+            if (items != undefined) {
+                return Promise.resolve()
+                    .then(() => {
+                    return this.get(items.pop());
+                })
+                    .then((i) => {
+                    output.push(i);
+                    if (items.length != 0) {
+                        return resolve(items);
+                    }
+                });
+            }
+            else
+                return output;
         };
         return this.statuses.get(status).then(items => {
             return resolve(items);
