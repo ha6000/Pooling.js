@@ -129,7 +129,9 @@ class Pool {
 	 */
 	getItemsOf(status: string): Promise<Item[]> {
 		return this.statuses.get(status).then(items => {
-			return items.map(i => new Item(this, i, status));
+			if (items != undefined) {
+				return items.map(i => new Item(this, i, status));
+			} else return [];
 		})
 	}
 	/**
@@ -140,16 +142,18 @@ class Pool {
 	getOf(status: string): Promise<any[]> {
 		var output = [];
 		var resolve = (items) => {
-			return Promise.resolve()
-			.then(() => {
-				return this.get(items.pop());
-			})
-			.then((i) => {
-				output.push(i);
-				if (items.length != 0) {
-					return resolve(items);
-				}
-			});
+			if (items != undefined) {
+				return Promise.resolve()
+				.then(() => {
+					return this.get(items.pop());
+				})
+				.then((i) => {
+					output.push(i);
+					if (items.length != 0) {
+						return resolve(items);
+					}
+				});
+			} else return output;
 		}
 		return this.statuses.get(status).then(items => {
 			return resolve(items);
