@@ -64,8 +64,8 @@ class Pool {
 	 */
 	constructor(database: Keyv) {
 		this.database = database;
-		this.items = new Keyv({store: new keyvExt.KeyvSub(this.database, 'data')});
-		this.statuses = new Keyv({store: new keyvExt.KeyvSub(this.database, 'statuses')});
+		this.items = new Keyv({store: database, namespace: 'items'});
+		this.statuses = new Keyv({store: database, namespace: 'statuses'});
 	}
 	/**
 	 * Add a item to the pool
