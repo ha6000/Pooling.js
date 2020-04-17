@@ -1,5 +1,4 @@
 import * as Keyv from 'keyv';
-import * as keyvExt from 'keyv-extensions';
 import * as shortid from 'shortid';
 
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:.')
