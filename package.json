@@ -2,7 +2,7 @@
   "name": "pooling.js",
   "version": "3.0.2",
   "description": "A basic pooling module",
-  "main": "src\\index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "tsc",
     "test": "npm run build && node test",
