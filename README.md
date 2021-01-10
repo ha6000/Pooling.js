@@ -1,3 +1,4 @@
+# ## Archived: it is somewhat usefull, but I don't have time to maintain it
 # Pooling.js
 ![npm](https://img.shields.io/npm/v/pooling.js)
 
